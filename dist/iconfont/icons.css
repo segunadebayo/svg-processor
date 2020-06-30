@@ -1,0 +1,29 @@
+@font-face {
+    font-family: "icons";
+    src: url("./icons.eot?aaed2f1bc466cadb6771d57f26b99afc?#iefix") format("embedded-opentype"),
+url("./icons.woff2?aaed2f1bc466cadb6771d57f26b99afc") format("woff2"),
+url("./icons.woff?aaed2f1bc466cadb6771d57f26b99afc") format("woff"),
+url("./icons.ttf?aaed2f1bc466cadb6771d57f26b99afc") format("truetype"),
+url("./icons.svg?aaed2f1bc466cadb6771d57f26b99afc#icons") format("svg");
+}
+
+i[class^="icon-"]:before, i[class*=" icon-"]:before {
+    font-family: icons !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-address-book:before {
+    content: "\f101";
+}
+.icon-address-card:before {
+    content: "\f102";
+}
+.icon-finance-icon:before {
+    content: "\f103";
+}
