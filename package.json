@@ -1,0 +1,17 @@
+{
+  "name": "node-icons",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Segun Adebayo <sage@adebayosegun.com>",
+  "license": "MIT",
+  "scripts": {
+    "react": "node src/svg-to-react.js",
+    "font": "node src/svg-to-font.js"
+  },
+  "dependencies": {
+    "@svgr/core": "5.4.0",
+    "fs-extra": "9.0.1",
+    "prettier": "2.0.5",
+    "svg-to-iconfont": "1.1.2"
+  }
+}
