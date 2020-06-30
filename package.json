@@ -5,15 +5,17 @@
   "author": "Segun Adebayo <sage@adebayosegun.com>",
   "license": "MIT",
   "scripts": {
-    "react": "node src/svg-to-react.js",
-    "font": "node src/svg-to-font.js"
+    "build": "node src/index.js",
+    "to:react": "node src/svg-to-react.js",
+    "to:font": "node src/svg-to-iconfont.js"
   },
   "dependencies": {
     "@svgr/core": "5.4.0",
     "fs-extra": "9.0.1",
+    "icon-font-generator": "2.1.10",
     "listr": "0.14.3",
     "prettier": "2.0.5",
-    "svg-to-iconfont": "1.1.2",
+    "shelljs": "0.8.4",
     "svgo": "1.3.2"
   }
 }

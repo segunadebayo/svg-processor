@@ -4,11 +4,11 @@ const fsExtra = require("fs-extra");
 const prettier = require("prettier");
 const readSvg = require("./read-svg");
 const path = require("path");
-const SVGO = require("svgo");
 const Listr = require("listr");
 const cleanSvg = require("./clean-svg");
+const svgToIconfont = require("./svg-to-iconfont");
 
-function toReact(filePath, outDir) {
+export function toReact(filePath, outDir) {
   const svgCode = readSvg(filePath);
 
   if (!svgCode) return;
@@ -16,7 +16,7 @@ function toReact(filePath, outDir) {
   const fileName = getFileName(filePath);
   const outPath = path.resolve(__dirname, outDir, fileName + ".jsx");
 
-  const componentName = getComponentName(filePath);
+  const componentName = getComponentName(fileName);
 
   svgr(
     svgCode,
@@ -36,8 +36,7 @@ function getFileName(filePath) {
   return path.basename(filePath).split(".").slice(0, -1).join("-");
 }
 
-function getComponentName(filePath) {
-  const fileName = getFileName(filePath);
+function getComponentName(fileName) {
   return fileName
     .split("-")
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
@@ -65,6 +64,12 @@ const tasks = new Listr([
       });
     },
   },
+  {
+    title: "Convert to icon font",
+    task: () => {
+      await svgToIconfont();
+    }
+  }
 ]);
 
 tasks.run().catch((err) => {
